@@ -1,37 +1,59 @@
 import streamlit as st
 
+# -----------------------------
+# Page Configuration
+# -----------------------------
 st.set_page_config(
-    page_title="AI Productivity Assistant",
+    page_title="AI Productivity OS",
     page_icon="🧠",
     layout="wide"
 )
 
-st.title("🧠 AI Productivity Assistant")
+# -----------------------------
+# Header
+# -----------------------------
+st.title("🧠 AI Productivity OS")
 
-st.write("Welcome! Let's organize your day.")
+st.subheader("Your AI-powered productivity companion")
 
 st.divider()
 
-task = st.text_input("Enter your task")
+# -----------------------------
+# Hero Section
+# -----------------------------
+st.markdown("""
+### Organize your work.
 
-category = st.selectbox(
-    "Category",
-    [
-        "Work",
-        "Learning",
-        "Health",
-        "Personal"
-    ]
-)
+### Build better habits.
 
-priority = st.selectbox(
-    "Priority",
-    [
-        "High",
-        "Medium",
-        "Low"
-    ]
-)
+### Automate repetitive tasks.
 
-if st.button("Add Task"):
-    st.success("Task added successfully!")
+Welcome to **AI Productivity OS**, a platform that will help you manage your work, understand your productivity, and use AI to stay focused.
+""")
+
+#st.write("")
+
+# -----------------------------
+# Call to Action
+# -----------------------------
+if st.button("🚀 Get Started"):
+    st.success("Welcome! We'll begin by setting up your first tasks in the next version.")
+
+st.divider()
+
+# -----------------------------
+# Upcoming Features
+# -----------------------------
+st.subheader("🚀 Roadmap")
+
+st.markdown("""
+- ✅ Smart Task Management
+- 🤖 AI Productivity Coach *(Coming Soon)*
+- 📊 Analytics Dashboard *(Coming Soon)*
+- 📅 Calendar Integration *(Coming Soon)*
+- ⚡ Workflow Automation *(Coming Soon)*
+""")
+
+st.divider()
+
+st.caption("Version 0.1 • Built with Python + Streamlit")
