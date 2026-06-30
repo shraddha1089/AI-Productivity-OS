@@ -1,17 +1,56 @@
-# Day 1
+# AI Productivity OS - Development Log
 
-## Built
+---
+
+# Sprint 0 - Day 1 (June 29, 2026)
+
+## Goal
+Set up the development environment.
+
+## Completed
 - Created GitHub repository
-- Set up Streamlit
-- Ran first application
+- Installed Git
+- Configured Git
+- Created Streamlit project
+- Successfully pushed first commit
 
 ## Learned
+- Git init
 - Git add
 - Git commit
 - Git push
+- Difference between local and remote repository
 
 ## Challenges
-- Fixed remote repository issue
+- Incorrect GitHub remote URL
+- README changes weren't appearing because I forgot to push
 
-## Tomorrow
-- Build task input UI
+## Reflection
+Today I understood the complete Git workflow and successfully connected my local project to GitHub.
+
+---
+
+# Sprint 0 - Day 2 (June 30, 2026)
+
+## Goal
+Project planning and architecture.
+
+## Completed
+- Defined product vision
+- Planned Version 1.0 features
+- Designed folder structure
+- Improved home screen
+
+## Learned
+- Product thinking
+- Software architecture
+- Why planning before coding saves time
+
+## Challenges
+(To be filled at the end of today's work)
+
+## Reflection
+(To be filled after today's session)
+
+## Next
+Build the Dashboard UI.
