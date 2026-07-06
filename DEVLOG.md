@@ -54,3 +54,29 @@ Project planning and architecture.
 
 ## Next
 Build the Dashboard UI.
+
+
+## Day 3 - Task Manager Comes Alive
+
+### Features Added
+- Implemented task creation
+- Added session state to persist tasks
+- Displayed tasks dynamically using a for loop
+- Organized task display using Streamlit containers
+- Improved UI with dividers and formatted task cards
+
+### Concepts Learned
+- st.session_state
+- List of dictionaries
+- Dynamic UI rendering
+- Python truthy/falsy values
+- f-strings
+- Streamlit containers
+
+### Key Learning
+A Streamlit app reruns from top to bottom on every interaction, so session state is required to preserve data during a user's session.
+
+### Next Goal
+- Validate user input
+- Prevent empty task names
+- Save tasks permanently using SQLite
