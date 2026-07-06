@@ -1,5 +1,3 @@
-from asyncio import tasks
-
 import streamlit as st
 
 # -------------------------------------------------
@@ -58,10 +56,10 @@ with col2:
     if st.session_state.tasks:
         for task in st.session_state.tasks:
             with st.container():
-                st.markdown("----------------------------------------------------")
-                st.write("📌", task["task_name"])
-                st.write("🔥",task["priority"])
-                st.write("🗓️",task["due_date"])
+                st.divider()
+                st.markdown(f"### 📌 {task['task_name']}")
+                st.write(f"🔥 Priority: {task['priority']}")
+                st.write(f"🗓️ Due: {task['due_date']}")
     else:
         st.info("No tasks added yet. Start by creating your first task!")
 
