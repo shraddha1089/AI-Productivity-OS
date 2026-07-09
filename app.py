@@ -1,5 +1,5 @@
 import streamlit as st
-
+from  database.database import create_database
 # -------------------------------------------------
 # Page Configuration
 # -------------------------------------------------
@@ -32,6 +32,7 @@ Welcome to **AI Productivity OS**, a platform designed to help you manage your w
 
 st.divider()
 
+#create_database()
 # -------------------------------------------------
 # Footer
 # -------------------------------------------------

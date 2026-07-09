@@ -1,10 +1,12 @@
 import streamlit as st
+from database.database import create_database, add_task, get_tasks
 
+create_database()
 # -------------------------------------------------
 # Initialize Session State
 # -------------------------------------------------
-if "tasks" not in st.session_state:
-    st.session_state.tasks = []
+#if "tasks" not in st.session_state:
+#    st.session_state.tasks = []
 
 # -------------------------------------------------
 # Task Manager
@@ -35,31 +37,32 @@ with col1:
 
     due_date = st.date_input("Due Date")
 
-    add_task = st.button("➕ Add Task")
+    add_task_button = st.button("➕ Add Task")
 
-    if add_task:
+    if add_task_button:
 
-        task = {
-            "task_name": task_name,
-            "priority": priority,
-            "due_date": due_date
-                }
+        add_task(
+            task_name,
+            priority,
+            str(due_date)
+            )
 
-        st.session_state.tasks.append(task)
-    
+        st.success("Task added successfully!")
+
 
 # ---------------- Right Column ----------------
+tasks = get_tasks()
 with col2:
 
     st.markdown("### 📋 My Tasks")
 
-    if st.session_state.tasks:
-        for task in st.session_state.tasks:
+    if tasks:
+        for task in tasks:
             with st.container():
                 st.divider()
-                st.markdown(f"### 📌 {task['task_name']}")
-                st.write(f"🔥 Priority: {task['priority']}")
-                st.write(f"🗓️ Due: {task['due_date']}")
+                st.write("📌",task[1])
+                st.write("🔥",task[2])
+                st.write("🗓️",task[3])
     else:
         st.info("No tasks added yet. Start by creating your first task!")
 
