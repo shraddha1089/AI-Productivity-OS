@@ -85,3 +85,33 @@
 
 * Fixed duplicate task insertion caused by checking the database function instead of the button state.
 * Improved project structure for better scalability and maintainability.
+
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+---
+
+## [Version 0.3] - Day 5
+
+### Added
+
+* Added Delete confirmation workflow to prevent accidental task deletion.
+* Added dynamic confirmation UI for the selected task.
+* Added unique Streamlit widget keys for Edit, Delete, Yes, and Cancel buttons.
+* Added automatic page refresh using `st.rerun()` after successful task deletion.
+
+### Changed
+
+* Improved delete workflow by separating button events from application state.
+* Used `st.session_state` to manage the selected task awaiting deletion.
+* Enhanced overall user experience by displaying the confirmation prompt within the selected task card.
+
+### Fixed
+
+* Fixed confirmation dialog disappearing due to Streamlit reruns.
+* Fixed widget conflicts by assigning unique keys to dynamically generated buttons.
+* Improved delete state handling by resetting Session State after deletion or cancellation.
+
+---

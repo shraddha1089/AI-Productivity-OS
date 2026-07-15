@@ -187,3 +187,60 @@ Resolved by checking the correct button variable.
 Today's work marked the transition from a simple prototype to a database-driven application.
 
 More importantly, I learned how data flows from the user interface to the database and back to the application, along with the importance of software architecture, reusable functions, and secure database programming.
+
+# Development Log
+
+## Day 5 – Delete Confirmation Workflow
+
+Today's focus was on improving the Task Manager by making task deletion safe and user-friendly.
+
+### What I Built
+
+* Implemented a confirmation workflow before deleting tasks.
+* Used Session State to remember which task the user selected for deletion.
+* Added Yes and Cancel buttons within the selected task card.
+* Automatically refreshed the application after successful deletion using `st.rerun()`.
+
+### Technical Concepts Learned
+
+* Difference between user events (button clicks) and application state.
+* Managing UI using `st.session_state`.
+* Importance of assigning unique keys to dynamically generated Streamlit widgets.
+* Understanding Streamlit's rerun behavior and how it affects button interactions.
+* Designing a confirmation flow without immediately executing database operations.
+
+### Problems Faced
+
+* Confirmation dialog disappeared after clicking Delete because it depended directly on the button click.
+* Multiple buttons generated inside a loop required unique keys.
+* Needed to manage the selected task across Streamlit reruns.
+
+### How I Solved Them
+
+* Stored the selected task ID in `st.session_state`.
+* Displayed the confirmation dialog based on the stored task ID instead of the Delete button state.
+* Assigned unique keys to all dynamically generated buttons.
+* Cleared Session State after deletion or cancellation.
+* Used `st.rerun()` to refresh the interface after deleting a task.
+
+### Outcome
+
+The Task Manager now supports:
+
+* Persistent task storage
+* Viewing saved tasks
+* Safe task deletion with confirmation
+* Immediate UI updates after database changes
+
+### Reflection
+
+Today's implementation reinforced an important software engineering principle: **UI should react to application state, not directly to button events.** Separating events from state made the delete workflow more reliable and easier to understand.
+
+### Next Goals
+
+* Implement Edit Task functionality.
+* Add task completion status.
+* Validate user input before saving tasks.
+* Improve the visual design of task cards.
+
+
