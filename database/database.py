@@ -68,3 +68,38 @@ def delete_task(task_id):
     conn.commit()
 
     conn.close()
+
+def update_task(task_id,task_name, priority, due_date):
+    conn = sqlite3.connect("tasks.db")
+
+    cursor = conn.cursor()
+
+    cursor.execute("""
+            UPDATE tasks
+            SET
+                task_name = ?,
+                priority = ?,
+                due_date = ?
+            WHERE id = ?
+    """, (task_name, priority,due_date,task_id))
+
+    conn.commit()
+
+    conn.close()
+    
+def get_task(task_id):
+    
+    conn = sqlite3.connect("tasks.db")
+
+    cursor = conn.cursor()
+
+    cursor.execute("""
+            SELECT * from tasks
+            WHERE id = ?
+            """, (task_id,)) 
+    
+    task = cursor.fetchone()
+    
+    conn.close()
+    
+    return task

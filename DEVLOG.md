@@ -244,3 +244,59 @@ Today's implementation reinforced an important software engineering principle: *
 * Improve the visual design of task cards.
 
 
+# Development Log
+
+## Day 6 - Building the Edit Task Feature
+
+Today's objective was to complete the final CRUD operation by implementing the **Update (Edit)** feature.
+
+### What I Built
+
+* Created an Edit Task dialog using Streamlit's `st.dialog()`.
+* Retrieved the selected task from the database using `get_task()`.
+* Designed an edit form with pre-filled values for:
+
+  * Task Name
+  * Priority
+  * Due Date
+* Added Save and Cancel buttons.
+* Connected the Save button to the `update_task()` database function.
+* Used `st.session_state.edit_task_id` to identify the task being edited.
+* Refreshed the application after saving changes using `st.rerun()`.
+
+### Challenges Faced
+
+* Learned why dialogs must be explicitly called after being defined.
+* Debugged `NoneType` errors caused by clearing session state prematurely.
+* Resolved duplicate widget ID errors by assigning unique keys to dialog widgets.
+* Improved understanding of how Streamlit reruns the script after every interaction.
+* Reinforced the importance of passing function parameters in the correct order.
+* Practiced reading Python tracebacks to locate and understand errors instead of guessing.
+
+### Key Learnings
+
+* `fetchone()` is the correct choice when retrieving a single database record.
+* `st.session_state` is essential for maintaining state across reruns.
+* Every Streamlit widget should have a unique key when multiple similar widgets exist.
+* Database records should be retrieved using unique IDs instead of task names.
+* CRUD applications become much easier to manage when database logic is separated into dedicated functions.
+
+### Reflection
+
+Today was one of the most valuable learning sessions so far. I spent more time debugging than writing code, but that helped me understand how Streamlit executes applications and how to systematically identify and fix issues using tracebacks. Completing the Edit feature means the Task Manager now supports full CRUD functionality and provides a strong foundation for future features such as task completion, dashboards, progress tracking, and AI-powered productivity insights.
+
+### Project Status
+
+🎉 **Task Manager Version 1 Complete**
+
+Current Features:
+
+* ✅ Add Task
+* ✅ View Tasks
+* ✅ Edit Task
+* ✅ Delete Task
+* ✅ SQLite Database Integration
+* ✅ Session State Management
+* ✅ Streamlit Dialogs
+
+

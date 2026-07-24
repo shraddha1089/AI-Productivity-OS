@@ -115,3 +115,40 @@ All notable changes to this project will be documented in this file.
 * Improved delete state handling by resetting Session State after deletion or cancellation.
 
 ---
+# Changelog
+
+## Day 6 - Edit Task Feature (CRUD Complete)
+
+### Added
+
+* Implemented **Edit Task** functionality.
+* Added an **Edit Dialog** using `st.dialog()`.
+* Added `update_task()` database function to update existing tasks.
+* Added `get_task(task_id)` database function to retrieve a single task.
+* Added `edit_task_id` in `st.session_state` to track the selected task.
+* Pre-filled edit dialog with existing task information.
+* Added **Save** and **Cancel** actions in the edit dialog.
+* Added unique widget keys for dialog components to prevent duplicate widget ID errors.
+
+### Improved
+
+* Separated edit functionality from the main task list.
+* Improved overall CRUD workflow.
+* Refined user experience by allowing tasks to be edited without leaving the page.
+* Updated UI labels for better readability and consistency.
+
+### Fixed
+
+* Fixed `NoneType` errors caused by resetting `edit_task_id` too early.
+* Fixed duplicate widget ID errors by assigning unique keys.
+* Fixed update workflow to use edited values from the dialog.
+* Removed temporary debugging statements after successful testing.
+
+### Status
+
+✅ Task Manager Version 1 is now feature complete with full CRUD support:
+
+* Create Task
+* Read Tasks
+* Update Task
+* Delete Task

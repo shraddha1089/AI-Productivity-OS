@@ -4,14 +4,57 @@ from database.database import (
     create_database,
     add_task,
     get_tasks,
-    delete_task
+    delete_task,
+    update_task,
+    get_task
 )
 
 create_database()
 
+@ st.dialog("Edit Task")
+def edit_task_dialog():
+
+    task = get_task(st.session_state.edit_task_id)
+    #st.write("Task ID:", st.session_state.edit_task_id)
+    #st.write("Task:", task)
+    
+    
+    task_name = st.text_input("Task name", value = task[1], key= "edit_task_name")
+
+    priority = st.selectbox(
+    "Priority",
+    ["High", "Medium", "Low"],
+    index=["High", "Medium", "Low"].index(task[2]),
+    key="edit_priority"
+)
+
+    due_date = st.date_input("Due date", value = task[3], key = "edit_due_date")
+    
+    edit_col1, edit_col2 = st.columns(2)
+
+    with edit_col1:
+    
+        save_button = st.button("Save", key = f"Save_{task[0]}")
+
+
+        if save_button:
+            update_task(st.session_state.edit_task_id, task_name, priority, due_date)
+
+            st.session_state.edit_task_id = None
+            st.rerun()
+                                
+    with edit_col2:
+        cancel_button = st.button("Cancel", key = f"Cancel_{task[0]}")
+        if cancel_button:
+            st.session_state.edit_task_id = None
+            st.rerun()
+
+
 if "delete_task_id" not in st.session_state:
     st.session_state.delete_task_id = None
 
+if "edit_task_id" not in st.session_state:
+    st.session_state.edit_task_id =None
 # -------------------------------------------------
 # Initialize Session State
 # -------------------------------------------------
@@ -83,6 +126,11 @@ with col2:
                 with col_1:
                     edit_task_button = st.button("Edit", key=f"edit_{task[0]}")
 
+                    if edit_task_button:
+                        st.session_state.edit_task_id = task[0]
+                        edit_task_dialog()
+                        
+                                                 
                 with col_2:
                     
                     delete_task_button = st.button("Delete", key=f"delete_{task[0]}")
@@ -106,7 +154,7 @@ with col2:
                             cancel_button =st.button("Cancel", key=f"Cancel_{task[0]}")
                             if cancel_button:
                                 st.session_state.delete_task_id = None
-                                    
+
     else:
         st.info("No tasks added yet. Start by creating your first task!")
 
